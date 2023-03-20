@@ -6,6 +6,11 @@ file_name = sys.argv[1]
 
 
 def valid_args(line_args: list):
+    """
+    helper function to check the arguments in a specific line
+    @param line_args: a list that should contain 3 arguments as specified in the exercise
+    @return: true if the arguments are valid, false otherwise
+    """
     if len(line_args) == 3:
         first = line_args[0]
         second = int(line_args[1])
@@ -57,8 +62,6 @@ try:
         csv_file.seek(0)  # Go back to the beginning of the file.
         for line in csv_file:
             args = line.strip().split(",")
-            # if len(args) != 3:
-            #     raise ValueError("CSV file is not well-formed")
             arg_type, length, csv_value = args
             print("|{:<7}| {:<6}| {:<{length}}|".format(arg_type.strip(), length.strip(), csv_value.strip(),
                                                         length=max_len))
